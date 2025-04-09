@@ -15,6 +15,8 @@ namespace na_quiz4_dotnet.Controllers
 
         public IActionResult Index()
         {
+            // Add database access prompt
+            ViewBag.Message = "Database access has already been done on April 9, 2025 by Na Zhang";
             return View();
         }
 

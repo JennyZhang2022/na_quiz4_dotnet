@@ -1,13 +1,8 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
 pool:
-  vmImage: 'windows-latest' 
+  name: default
 
 variables:
   buildConfiguration: 'Release'
@@ -16,7 +11,7 @@ steps:
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
-    version: '8.x.x'  
+    version: '8.x.x'
 
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'Build project'
@@ -28,4 +23,5 @@ steps:
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'na_dotnet_artifact'
+
 
